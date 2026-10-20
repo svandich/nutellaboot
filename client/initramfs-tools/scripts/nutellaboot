@@ -12,7 +12,7 @@
 # Tudo além disto vive no stuff, que é atualizado no servidor sem regravar
 # pendrive. Este arquivo deve permanecer pequeno.
 
-NB_DEFAULT_SERVER='https://nutellaboot.mdp.naquadah.com.br'
+NB_DEFAULT_SERVER='https://nutellaboot.dcc.uchile.cl'
 NB_CA_BUNDLE=${NB_CA_BUNDLE:-/etc/ssl/certs/ca-certificates.crt}
 NB_RUN=${NB_RUN:-/run/nutellaboot}
 # Caminhos parametrizados para que a lógica de configuração possa ser

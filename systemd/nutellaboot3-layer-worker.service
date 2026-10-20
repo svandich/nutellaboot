@@ -17,7 +17,7 @@ Environment=NB3_DATA_ROOT=/var/lib/nutellaboot3
 # publica no files.mdp só é enxergado se o HOME for o diretório de dados.
 Environment=HOME=/var/lib/nutellaboot3
 # Entra na URL de reserva da camada quando a publicação falha (_url_local).
-Environment=NB3_BASE_URL=https://nutellaboot.mdp.naquadah.com.br
+Environment=NB3_BASE_URL=https://nutellaboot.dcc.uchile.cl
 # O diretório de trabalho fica no volume de dados, que já é o único caminho de
 # escrita liberado abaixo. Em /tmp ou /run seria RAM, e o NutellaBoot 2 já
 # perdeu construção por manter o upper em memória.

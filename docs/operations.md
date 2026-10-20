@@ -57,7 +57,7 @@ sistema base sobrescrever tudo, em silêncio.
 Transforma a imagem-mestre num `.squash`:
 
 ```bash
-NB3_ADMIN_KEY=nb3a_... NB3_BASE_URL=https://nutellaboot.mdp.naquadah.com.br \
+NB3_ADMIN_KEY=nb3a_... NB3_BASE_URL=https://nutellaboot.dcc.uchile.cl \
     tools/nb3-gerar-squash \
         --raw /caminho/ubuntu-24.04-initial.raw \
         --name maratonalinux2026 \
@@ -96,7 +96,7 @@ Um comando faz a temporada inteira — duplica o modelo do ano passado
 a base:
 
 ```bash
-export NB3_BASE_URL=https://nutellaboot.mdp.naquadah.com.br
+export NB3_BASE_URL=https://nutellaboot.dcc.uchile.cl
 export NB3_ADMIN_KEY=nb3a_...
 
 # sempre veja antes o que vai acontecer
@@ -170,7 +170,7 @@ O agente, a tela de bloqueio e a regra que detecta pendrive moram em
 transforma em camada, publica e registra no modelo:
 
 ```bash
-export NB3_BASE_URL=https://nutellaboot.mdp.naquadah.com.br
+export NB3_BASE_URL=https://nutellaboot.dcc.uchile.cl
 export NB3_ADMIN_KEY=nb3a_...
 
 tools/nb3-camada-telemetria --dry-run --all-models          # ver antes
@@ -315,7 +315,7 @@ NB3_ADMIN_KEY=nb3a_... tools/nb3-genusb \
     --output 26brbr.img \
     --imageroot 26brbr \
     --fetch-key \
-    --server https://nutellaboot.mdp.naquadah.com.br \
+    --server https://nutellaboot.dcc.uchile.cl \
     --wifi minhas-redes.conf
 ```
 
@@ -408,7 +408,7 @@ se alguém escolher uma das duas:
 ```bash
 NB3_ADMIN_KEY=nb3a_... tools/nb3-genusb --installer \
     --output 26brbr-instalador.img --imageroot 26brbr --fetch-key \
-    --server https://nutellaboot.mdp.naquadah.com.br
+    --server https://nutellaboot.dcc.uchile.cl
 ```
 
 **Na máquina:**
@@ -658,7 +658,7 @@ Para travar (ou destravar) o papel de parede de uma imagem que já existe, use a
 caixa da seção **Geral** da página dela e **Salvar**. Ou a API:
 
 ```bash
-curl -X PATCH https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26spsp \
+curl -X PATCH https://nutellaboot.dcc.uchile.cl/api/v1/site-images/26spsp \
     -H "Authorization: Bearer $NB3_ADMIN_KEY" \
     -H 'Content-Type: application/json' \
     -d '{"wallpaper_locked": true}'
@@ -929,7 +929,7 @@ nenhuma. Sair de uma página com algo não salvo pede confirmação.
 
 ### A página inicial
 
-O endereço raiz do servidor (`https://nutellaboot.mdp.naquadah.com.br/`) é a porta
+O endereço raiz do servidor (`https://nutellaboot.dcc.uchile.cl/`) é a porta
 de entrada para todo mundo, em português, inglês e espanhol. Ela tem quatro
 cartões: **coordenador** (cola o identificador e o token de uma imagem que já
 existe e abre a configuração ou o painel), **quero uma imagem própria** (leva
@@ -949,7 +949,7 @@ sem precisar do link.
 Cada imagem tem um link próprio, já com o token embutido:
 
 ```
-https://nutellaboot.mdp.naquadah.com.br/configureitor/?id=26spsp&tk=nb3i_...
+https://nutellaboot.dcc.uchile.cl/configureitor/?id=26spsp&tk=nb3i_...
 ```
 
 Esse link **é** a credencial: quem tem o link configura a imagem. Mande por
@@ -1005,11 +1005,11 @@ Quem preferir a API:
 
 ```bash
 # ver os campos e o estado de cada cadeado
-curl https://nutellaboot.mdp.naquadah.com.br/api/v1/models/maratonalinux2604/schema \
+curl https://nutellaboot.dcc.uchile.cl/api/v1/models/maratonalinux2604/schema \
     -H "Authorization: Bearer $NB3_ADMIN_KEY"
 
 # abrir a RAM mínima e fechar o fuso horário
-curl -X PUT https://nutellaboot.mdp.naquadah.com.br/api/v1/models/maratonalinux2604/schema/locks \
+curl -X PUT https://nutellaboot.dcc.uchile.cl/api/v1/models/maratonalinux2604/schema/locks \
     -H "Authorization: Bearer $NB3_ADMIN_KEY" \
     -H 'Content-Type: application/json' \
     -d '{"locks": {"MINRAM": false, "TIMEZONE": true}}'
@@ -1233,7 +1233,7 @@ chave esquecida, não para perícia.
 ### O painel do laboratório
 
 ```
-https://nutellaboot.mdp.naquadah.com.br/hotconfig/?id=26spsp&tk=nb3i_...
+https://nutellaboot.dcc.uchile.cl/hotconfig/?id=26spsp&tk=nb3i_...
 ```
 
 Cada máquina é um cartão, atualizado sozinho (o servidor empurra as mudanças —
@@ -1369,7 +1369,7 @@ aparece na aba de logs da máquina como `expired`.
 ### Todas as sedes numa tela
 
 ```
-https://nutellaboot.mdp.naquadah.com.br/laboratorios/
+https://nutellaboot.dcc.uchile.cl/laboratorios/
 ```
 
 Uma linha por sede — máquinas, quantas rodaram na janela escolhida, quantas
@@ -1856,7 +1856,7 @@ done; wait
 ## Instalar o servidor (do zero)
 
 O que está no ar hoje, feito exatamente assim em
-`nutellaboot.mdp.naquadah.com.br` (Ubuntu 24.04).
+`nutellaboot.dcc.uchile.cl` (Ubuntu 24.04).
 
 ```bash
 apt-get install -y python3-venv python3-pip nginx certbot python3-certbot-nginx \
@@ -1894,7 +1894,7 @@ rm -f /etc/nginx/sites-enabled/default
 
 # O certificado PRIMEIRO: o arquivo de configuração aponta para ele, e o nginx
 # não inicia apontando para arquivo que não existe.
-certbot certonly --webroot -w /opt/nutellaboot3/web -d nutellaboot.mdp.naquadah.com.br
+certbot certonly --webroot -w /opt/nutellaboot3/web -d nutellaboot.dcc.uchile.cl
 
 install -m 0644 /opt/nutellaboot3/deploy/nginx-nutellaboot3.conf /etc/nginx/sites-available/nutellaboot3
 ln -sf /etc/nginx/sites-available/nutellaboot3 /etc/nginx/sites-enabled/
@@ -1911,8 +1911,8 @@ nginx -t && systemctl reload nginx
 essa é uma invariante do projeto. Confira do lado de fora antes de seguir:
 
 ```bash
-curl https://nutellaboot.mdp.naquadah.com.br/api/v1/health
-curl https://nutellaboot.mdp.naquadah.com.br/boot/v3/sanity      # penguin
+curl https://nutellaboot.dcc.uchile.cl/api/v1/health
+curl https://nutellaboot.dcc.uchile.cl/boot/v3/sanity      # penguin
 ```
 
 ### Publicar no servidor de arquivos
@@ -1986,7 +1986,7 @@ nginx -t && systemctl reload nginx
 systemctl daemon-reload
 
 systemctl restart nutellaboot3
-curl -s https://nutellaboot.mdp.naquadah.com.br/api/v1/health
+curl -s https://nutellaboot.dcc.uchile.cl/api/v1/health
 ```
 
 O `stuff` é lido do disco a cada boot, então mudança em `client/stuff/` chega às

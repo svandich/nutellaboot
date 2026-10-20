@@ -139,7 +139,7 @@ outro.
 
 ```
 $ curl -s -H "X-NB-Boot-Key: $BOOT_KEY" \
-    https://nutellaboot.mdp.naquadah.com.br/boot/v3/25brbr/manifest
+    https://nutellaboot.dcc.uchile.cl/boot/v3/25brbr/manifest
 60782353ebd1898ab5d5f7a86c9efc34 firefox.squash https://files.mdp.naquadah.com.br/maratonalinux/firefox.squash
 2c02aa5ea909e9f74ce47ea7d3a84b4d wifis.squash http://files.mdp.naquadah.com.br/maratonalinux/wifis.squash
 fbd0543ae7c9181ac029192e3c7d087e log23.squash http://files.mdp.naquadah.com.br/maratonalinux/log23.squash
@@ -182,7 +182,7 @@ O cliente lê com `while read MD5 ARQUIVO URLS` e passa `$URLS` inteiro ao
 
 NBUID=866112933
 IMAGEROOT='25brbr'
-NB_SERVER='https://nutellaboot.mdp.naquadah.com.br'
+NB_SERVER='https://nutellaboot.dcc.uchile.cl'
 NB_MACHINE_KEY='nb3m_…'
 NB_BOOT_KEY='nb3b_…'
 ALLOWNETWORKCHANGE='f'
@@ -1066,7 +1066,7 @@ integra leva o arquivo e usa, sem venv, sem `pip` e sem depender deste
 repositório.
 
 ```bash
-export NB3_BASE_URL=https://nutellaboot.mdp.naquadah.com.br
+export NB3_BASE_URL=https://nutellaboot.dcc.uchile.cl
 export NB3_API_KEY=nb3s_...          # serve nb3a_, nb3s_ e o nb3i_ da sede
 
 nb3-api whoami                       # com nb3s_: escopos, globs e as imagens que eles cobrem
@@ -1118,7 +1118,7 @@ imagens daquele evento: a chave de administração não precisa ficar gravada em
 lugar nenhum do lado de quem integra.
 
 ```bash
-curl -sS -X POST https://nutellaboot.mdp.naquadah.com.br/api/v1/service-keys \
+curl -sS -X POST https://nutellaboot.dcc.uchile.cl/api/v1/service-keys \
   -H "Authorization: Bearer $ADMIN_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -1150,7 +1150,7 @@ vale, diz que escopo falta sem sondar com 403 e dispensa digitar os ids.
 relatório; `bindings:write` publica o elo máquina ↔ time no momento do login:
 
 ```bash
-curl -sS -X PUT https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26brbr/machines/52-54-00-12-34-56/binding \
+curl -sS -X PUT https://nutellaboot.dcc.uchile.cl/api/v1/site-images/26brbr/machines/52-54-00-12-34-56/binding \
   -H "Authorization: Bearer $NB3S" -H 'Content-Type: application/json' \
   -d '{"user_id": "team-001", "source": "moj-login", "at": 1788026460, "boot_id": "2172579592"}'
 ```
@@ -1158,7 +1158,7 @@ curl -sS -X PUT https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26brb
 ### 2. Enviar o roster dos times
 
 ```bash
-curl -sS -X PUT https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26brbr/roster \
+curl -sS -X PUT https://nutellaboot.dcc.uchile.cl/api/v1/site-images/26brbr/roster \
   -H "Authorization: Bearer $MOJ_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -1179,7 +1179,7 @@ curl -sS -X PUT https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26brb
 
 ```bash
 curl -sS -X PUT \
-  https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26brbr/roster/logos/unb \
+  https://nutellaboot.dcc.uchile.cl/api/v1/site-images/26brbr/roster/logos/unb \
   -H "Authorization: Bearer $MOJ_KEY" \
   -F file=@unb.svg
 ```
@@ -1191,7 +1191,7 @@ barra nem `..`.
 
 ```bash
 curl -sS -X PUT \
-  https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26brbr/machines/52-54-00-12-34-56/binding \
+  https://nutellaboot.dcc.uchile.cl/api/v1/site-images/26brbr/machines/52-54-00-12-34-56/binding \
   -H "Authorization: Bearer $MOJ_KEY" \
   -H 'Content-Type: application/json' \
   -d '{"user_id": "team-001"}'
@@ -1209,12 +1209,12 @@ Na largada (milhares de logins em minutos) e no replay, use o lote: `PUT
 
 ```bash
 # a sala inteira
-curl -sS -X POST https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26brbr/lock \
+curl -sS -X POST https://nutellaboot.dcc.uchile.cl/api/v1/site-images/26brbr/lock \
   -H "Authorization: Bearer $MOJ_KEY"
 
 # uma máquina
 curl -sS -X POST \
-  https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26brbr/machines/52-54-00-12-34-56/unlock \
+  https://nutellaboot.dcc.uchile.cl/api/v1/site-images/26brbr/machines/52-54-00-12-34-56/unlock \
   -H "Authorization: Bearer $MOJ_KEY"
 ```
 
@@ -1224,7 +1224,7 @@ máquinas recebem em poucos segundos, porque estão penduradas no long-poll.
 ### 6. Ler telemetria
 
 ```bash
-curl -sS https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26brbr/machines \
+curl -sS https://nutellaboot.dcc.uchile.cl/api/v1/site-images/26brbr/machines \
   -H "Authorization: Bearer $MOJ_KEY"
 ```
 
@@ -1257,7 +1257,7 @@ Com o escopo `webhooks:write`, a própria chave de serviço instala o webhook (e
 reinstalar com a mesma URL não duplica):
 
 ```bash
-curl -sS -X POST https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26brbr/webhooks \
+curl -sS -X POST https://nutellaboot.dcc.uchile.cl/api/v1/site-images/26brbr/webhooks \
   -H "Authorization: Bearer $NB3S" -H 'Content-Type: application/json' \
   -d '{"url": "https://moj.naquadah.com.br/hooks/nutellaboot?contest=c1",
        "secret": "um-segredo-de-16-caracteres-ou-mais",
@@ -1267,7 +1267,7 @@ curl -sS -X POST https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26br
 Ou pela administração, com a lista inteira:
 
 ```bash
-curl -sS -X PUT https://nutellaboot.mdp.naquadah.com.br/api/v1/site-images/26brbr/webhooks \
+curl -sS -X PUT https://nutellaboot.dcc.uchile.cl/api/v1/site-images/26brbr/webhooks \
   -H "Authorization: Bearer $ADMIN_KEY" \
   -H 'Content-Type: application/json' \
   -d '{

@@ -93,7 +93,7 @@ IMAGEROOT=26brbr
 NB_BOOT_KEY=nb3b_...
 
 # Servidor do NutellaBoot (opcional; use para apontar a um servidor de teste).
-#NB_SERVER=https://nutellaboot.mdp.naquadah.com.br
+#NB_SERVER=https://nutellaboot.dcc.uchile.cl
 
 # Fixa nomes no /etc/hosts do initrd: "nome ip", uma linha por entrada.
 #NB_HOSTS=nutellaboot.charge.naquadah.com.br 10.0.2.2
@@ -773,7 +773,7 @@ O módulo `20-secrets.sh` escreve `/etc/.nb3` (modo 600). É o contrato entre o
 boot e o sistema em execução:
 
 ```sh
-NB_SERVER='https://nutellaboot.mdp.naquadah.com.br'
+NB_SERVER='https://nutellaboot.dcc.uchile.cl'
 IMAGEROOT='26brbr'
 NB_MACHINE_KEY='nb3m_...'
 NB_BOOT_KEY='nb3b_...'

@@ -330,7 +330,7 @@ automático (incluindo o bloqueio dos hashes de senha) e empacota.
 tools/nb3-pack-upper minha-camada.tar \
     --name spim \
     --attach 26spsp \
-    --server https://nutellaboot.mdp.naquadah.com.br \
+    --server https://nutellaboot.dcc.uchile.cl \
     --admin-key nb3a_...
 ```
 

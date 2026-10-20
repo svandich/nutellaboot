@@ -18,7 +18,7 @@ Environment=NB3_DATA_ROOT=/var/lib/nutellaboot3
 Environment=HOME=/var/lib/nutellaboot3
 # Vai para dentro do stuff, do manifest e do nutellaboot.conf de TODO pendrive
 # gravado. Errar aqui é errar em cada pendrive que sair daqui.
-Environment=NB3_BASE_URL=https://nutellaboot.mdp.naquadah.com.br
+Environment=NB3_BASE_URL=https://nutellaboot.dcc.uchile.cl
 # Rede de segurança do long-poll (ver routers/machines.py). Com ~1600 máquinas
 # seguradas, 5 s são 320 leituras de disco por segundo no único event loop;
 # 25 s são 64/s. O caminho normal continua sendo o sinal, em milissegundos.
