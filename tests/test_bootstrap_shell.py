@@ -365,10 +365,10 @@ def test_nb_hosts_pin(sh):
     """NB_HOSTS vira linha de /etc/hosts — é o que permite testar em qemu
     (SLIRP, host em 10.0.2.2) sem abrir mão da validação de certificado."""
     (sh.run_dir / "nutellaboot.conf").write_text(
-        "IMAGEROOT=x\nNB_BOOT_KEY=nb3b_x\nNB_HOSTS=nutellaboot.charge.naquadah.com.br 10.0.2.2\n"
+        "IMAGEROOT=x\nNB_BOOT_KEY=nb3b_x\nNB_HOSTS=cs.erz.cl 10.0.2.2\n"
     )
     sh("nb_read_usbconfig")
-    assert "10.0.2.2 nutellaboot.charge.naquadah.com.br" in (sh.tmp / "hosts").read_text()
+    assert "10.0.2.2 cs.erz.cl" in (sh.tmp / "hosts").read_text()
 
 
 def test_no_interactive_read_in_client_scripts():

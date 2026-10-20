@@ -17,7 +17,7 @@ set -euo pipefail
 
 REPO=$(cd "$(dirname "$0")/.." && pwd)
 IMAGEM=${NB3_TEST_IMAGE:-testes3}
-SERVIDOR=${NB3_BASE_URL:-https://nutellaboot.charge.naquadah.com.br:8443}
+SERVIDOR=${NB3_BASE_URL:-https://cs.erz.cl}
 DISCO=${NB3_TEST_DISK:-$REPO/data/test-disk.raw}
 USB=${NB3_TEST_USB:-$REPO/data/test-usb.img}
 MEM=${NB3_TEST_MEM:-8G}

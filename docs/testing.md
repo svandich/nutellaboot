@@ -90,10 +90,10 @@ O `nb3-dev` sobe um único worker. Isso não é detalhe de configuração: o
 long-poll e o SSE mantêm os sinais de acordar em memória, então **mais de um
 worker quebraria a entrega de comandos**.
 
-Já existe um proxy nginx apontando para esse servidor:
+O servidor de teste fica na máquina `erz`, atrás do Caddy dela:
 
 ```
-https://nutellaboot.charge.naquadah.com.br:8443  →  localhost:8890
+https://cs.erz.cl  →  127.0.0.1:8890 (na erz)
 ```
 
 Use o endereço público quando quiser testar com TLS de verdade (é o que as
@@ -102,7 +102,7 @@ máquinas usam) e o `localhost` para depurar sem passar pelo proxy.
 ### Verificação por curl
 
 ```bash
-B=https://nutellaboot.charge.naquadah.com.br:8443
+B=https://cs.erz.cl
 BK=nb3b_...          # chave de boot de testes3
 TK=nb3i_...          # token da imagem
 AK=nb3a_...          # chave de administração
@@ -207,7 +207,7 @@ e o SLIRP é IPv4 — a máquina virtual não conseguiria chegar nele por DNS.
 Por isso o `nb3-run-test` grava no `nutellaboot.conf` do pendrive de teste:
 
 ```
-NB_HOSTS=nutellaboot.charge.naquadah.com.br 10.0.2.2
+NB_HOSTS=cs.erz.cl 10.0.2.2
 ```
 
 Isso escreve a linha no `/etc/hosts` do initrd. O nome continua o mesmo — muda

@@ -14,7 +14,7 @@
 
 set -euo pipefail
 
-SERVIDOR=${NB3_BASE_URL:-https://nutellaboot.charge.naquadah.com.br:8443}
+SERVIDOR=${NB3_BASE_URL:-https://cs.erz.cl}
 CHAVE=${NB3_ADMIN_KEY:-}
 ARQUIVO=""
 

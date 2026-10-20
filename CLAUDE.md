@@ -300,8 +300,8 @@ tools/nb3-seed-testdata            # dados de teste (não é instalação)
 tools/nb3-layer-worker --check     # confere as ferramentas rootless
 ```
 
-O ambiente de teste tem um nginx externo que faz proxy de
-`https://nutellaboot.charge.naquadah.com.br:8443` para `localhost:8890`.
+O servidor de teste é `https://cs.erz.cl`: o Caddy da máquina `erz` faz proxy
+para o uvicorn em `127.0.0.1:8890` de lá.
 
 ## Armadilhas já encontradas (não repita)
 

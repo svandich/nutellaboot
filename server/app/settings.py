@@ -12,7 +12,7 @@ class Settings:
     def __init__(self) -> None:
         self.data_root = Path(os.environ.get("NB3_DATA_ROOT", str(REPO_ROOT / "data")))
         self.base_url = os.environ.get(
-            "NB3_BASE_URL", "https://nutellaboot.charge.naquadah.com.br:8443"
+            "NB3_BASE_URL", "https://cs.erz.cl"
         ).rstrip("/")
         self.host = os.environ.get("NB3_HOST", "127.0.0.1")
         self.port = int(os.environ.get("NB3_PORT", "8890"))

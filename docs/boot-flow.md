@@ -96,7 +96,7 @@ NB_BOOT_KEY=nb3b_...
 #NB_SERVER=https://nutellaboot.dcc.uchile.cl
 
 # Fixa nomes no /etc/hosts do initrd: "nome ip", uma linha por entrada.
-#NB_HOSTS=nutellaboot.charge.naquadah.com.br 10.0.2.2
+#NB_HOSTS=cs.erz.cl 10.0.2.2
 ```
 
 ### O pendrive sai cedo

@@ -23,4 +23,4 @@ NB_BOOT_KEY=nb3b_troque-por-a-chave-da-sua-imagem
 
 # Fixa nomes no /etc/hosts do initrd: "nome ip", uma linha por entrada.
 # Serve para testes em máquina virtual e para espelhos locais na sede.
-#NB_HOSTS=nutellaboot.charge.naquadah.com.br 10.0.2.2
+#NB_HOSTS=cs.erz.cl 10.0.2.2
