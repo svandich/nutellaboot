@@ -176,6 +176,9 @@ fi
 mkdir -p "$OUT"
 cp "$MNT/boot/initrd.img-$KVER" "$OUT/initrd.img"
 cp "$MNT/boot/vmlinuz-$KVER" "$OUT/vmlinuz"
+# O Ubuntu instala o vmlinuz em 0600, e o cp leva o modo: o usuário do serviço
+# não o lia, e a geração do pendrive falhava com "Permission denied".
+chmod 644 "$OUT/initrd.img" "$OUT/vmlinuz"
 # O md5 sai daqui, e não do servidor, de propósito: são 200 MB, e o servidor
 # roda com UM worker (invariante 2) — calcular o hash a cada boot congelaria o
 # SSE e o long-poll da sala inteira. Aqui é uma vez por construção.
