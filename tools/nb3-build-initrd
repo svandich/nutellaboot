@@ -57,7 +57,7 @@ MNT=$(mktemp -d)
 LOOP=""
 cleanup() {
     for d in dev/pts dev proc sys; do
-        mountpoint -q "$MNT/$d" && umount "$MNT/$d" || true
+        mountpoint -q "$MNT/$d" && umount -R "$MNT/$d" || true
     done
     mountpoint -q "$MNT" && umount "$MNT" || true
     [ -n "$LOOP" ] && losetup -d "$LOOP" || true
@@ -105,8 +105,13 @@ if [ -z "$KVER" ]; then
 fi
 echo ">> kernel: $KVER"
 
+# Escravo, e desmontado com -R: algo dentro do chroot monta o efivarfs no
+# /sys. Com o bind compartilhado (o padrão do systemd) a montagem aparecia
+# também no /sys do servidor, e o umount simples da limpeza dava "target is
+# busy", deixando a imagem montada em leitura e escrita.
 for d in proc sys dev dev/pts; do
     mount --bind "/$d" "$MNT/$d"
+    mount --make-rslave "$MNT/$d"
 done
 
 # O chroot herda o PATH de quem chamou, e o `sudo` do Arch não tem /usr/sbin
