@@ -109,6 +109,11 @@ for d in proc sys dev dev/pts; do
     mount --bind "/$d" "$MNT/$d"
 done
 
+# O chroot herda o PATH de quem chamou, e o `sudo` do Arch não tem /usr/sbin
+# (lá sbin é o mesmo diretório que bin). No Ubuntu da imagem /usr/sbin é real,
+# e o update-initramfs mora nele: "No such file or directory".
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 chroot "$MNT" update-initramfs -c -k "$KVER" || chroot "$MNT" update-initramfs -u -k "$KVER"
 
 # A falha de um hook é MUDA: o `copy_exec` não reclama de destino errado, e o
