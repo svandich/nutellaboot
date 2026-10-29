@@ -1860,7 +1860,7 @@ O que está no ar hoje, feito exatamente assim em
 
 ```bash
 apt-get install -y python3-venv python3-pip nginx certbot python3-certbot-nginx \
-    squashfs-tools rsync mtools grub-efi-amd64-bin grub-pc-bin grub-common
+    squashfs-tools rsync mtools fdisk grub-efi-amd64-bin grub-pc-bin grub-common
 
 adduser --system --group --home /var/lib/nutellaboot3 --shell /usr/sbin/nologin nutellaboot
 install -d -o nutellaboot -g nutellaboot -m 0750 /var/lib/nutellaboot3
